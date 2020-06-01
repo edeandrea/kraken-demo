@@ -8,13 +8,11 @@ projects:
       type: git
       branch: master
 components:
-  - id: redhat/java8/latest
+  - id: redhat/quarkus-java11/latest
     type: chePlugin
   - id: redhat/vscode-yaml/latest
     type: chePlugin
   - id: redhat/vscode-xml/latest
-    type: chePlugin
-  - id: redhat/vscode-openshift-connector/latest
     type: chePlugin
   - mountSources: true
     endpoints:
@@ -27,33 +25,33 @@ components:
     volumes:
       - name: m2
         containerPath: /home/jboss/.m2
-    alias: dev
-    image: 'registry.redhat.io/codeready-workspaces/stacks-java-rhel8:2.1'
+    alias: quarkus
+    image: 'registry.redhat.io/codeready-workspaces/plugin-java11-rhel8:2.1'
 commands:
   - name: Maps - dev mode
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/kraken-demo/maps'
         type: exec
         command: 'mvn clean compile quarkus:dev'
-        component: dev
+        component: quarkus
   - name: Maps - package
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/kraken-demo/maps'
         type: exec
         command: mvn clean package
-        component: dev
+        component: quarkus
   - name: Twitter - dev mode
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/kraken-demo/twitter'
         type: exec
         command: 'mvn clean compile quarkus:dev'
-        component: dev
+        component: quarkus
   - name: Twitter - package
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/kraken-demo/twitter'
         type: exec
         command: mvn clean package
-        component: dev
+        component: quarkus
   - name: Remote debug
     actions:
       - referenceContent: |
