@@ -5,5 +5,5 @@ app_nm_maps: kraken-maps
 context_dir_twitter: /twitter
 context_dir_maps: /maps
 source_github_url: https://github.com/edeandrea/kraken-demo
-source_github_branch: automation
+source_github_branch: master
 twitter_kafka_bootstrap_server: twitter-kafka-bootstrap:9092
