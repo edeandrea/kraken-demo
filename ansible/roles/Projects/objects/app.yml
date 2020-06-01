@@ -59,7 +59,7 @@ metadata:
   labels:
     app: "{{ app_name }}"
     app.kubernetes.io/part-of: kraken
-    app.openshift.io/runtime: java
+    app.openshift.io/runtime: quarkus
     app.openshift.io/runtime-version: '8'
   name: "{{ app_name }}"
   annotations:
